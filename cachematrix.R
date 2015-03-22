@@ -1,5 +1,5 @@
 ## These functions work together to create a matrix object that can optionally cache its own inverse.  
-## The makeCacheMatrix  function initializes the matirix object.  The inverse is initially set to NULL\
+## The makeCacheMatrix  function initializes the matirix object.  The inverse is initially set to NULL
 ## The cacheSolve function checks whether the inverse matrix is null.  If so, it calculates and caches the inverse.
 ## Otherwise, it returns the cached value of the inverse matrix.
 
