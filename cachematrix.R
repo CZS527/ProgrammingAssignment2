@@ -1,15 +1,13 @@
-## These functions work together to create a matrix object that can cache its own inverse.  
-## Initially
-
+## These functions work together to create a matrix object that can optionally cache its own inverse.  
+## The makeCacheMatrix  function initializes the matirix object.  The inverse is initially set to NULL\
+## The cacheSolve function checks whether the inverse matrix is null.  If so, it calculates and caches the inverse.
+## Otherwise, it returns the cached value of the inverse matrix.
 
 ## Create the matrix object storing the value of a matrix.  Optionally store the value of the inverse.
 ## Interact with object using functions described below.
 
 makeCacheMatrix <- function(x) {
   i <- NULL
-#  print(environment())
-#  evn <- environment()
-#  print(parent.env(evn))
   set <- function(y) {
     x <<- y
     i <<- NULL
@@ -17,7 +15,6 @@ makeCacheMatrix <- function(x) {
   get <- function() x
   setinv <- function(inv = NULL) i <<- inv
   getinv <- function() i
-#  getevn <- function() environment()
   matObj <- list(
     set = set, 
     get = get, 
@@ -26,7 +23,7 @@ makeCacheMatrix <- function(x) {
   matObj
 }
 
-## Return cached inverse matrix, if it exists.  Otherwise calculate and returns the inverse matrix.
+## Return cached inverse matrix, if it exists.  Otherwise calculate, caches, and returns the inverse matrix.
 
 cacheSolve <- function(x) {
   i <- x$getinv()
